@@ -1,5 +1,7 @@
 export default {
-  mode: 'spa',
+  ssr: true,
+  modulesDir: ['../node_modules'],
+  srcDir: ['../src'],
   /*
    ** Headers of the page
    */
