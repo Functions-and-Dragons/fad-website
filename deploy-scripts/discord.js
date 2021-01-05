@@ -7,7 +7,7 @@ function sendMessage() {
         body: JSON.stringify({
                 username: "Now.SH Deploy Bot",
                 avatar_url: "",
-                content: "The message to send"
+                content: "The message to send test"
             }),
         headers: { 'Content-Type': 'application/json' },
     }).then(res => {
