@@ -11,7 +11,7 @@ function sendMessage() {
             }),
         headers: { 'Content-Type': 'application/json' },
     }).then(res => {
-        if (res.status < 300 && Response.status >= 200) {
+        if (res.status < 300 && res.status >= 200) {
             console.log(`Deployment message successfully sent to Discord with a ${res.status} status.`)
         } else {
             console.warn(`Deployment message failed to send to Discord with a ${res.status} status.`)
