@@ -1,5 +1,4 @@
 export default {
-  ssr: true,
   modulesDir: ['../node_modules'],
   srcDir: ['../src'],
   /*
