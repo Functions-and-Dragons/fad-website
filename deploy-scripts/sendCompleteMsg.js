@@ -22,6 +22,7 @@ function sendMessage() {
             break;
         case "prod":
             messageURL = `**PROD** at https://functionsdragons.com`;
+            break;
         default:
             messageURL = VERCEL_URL;
     }
@@ -40,6 +41,8 @@ function sendMessage() {
         } else {
             console.warn(`Deployment message failed to send to Discord with a ${res.status} status.`)
         }
+    }).catch(error => {
+        console.warn(`Fetch failed and Discord message wasn't sent.`)
     });
 }
 
