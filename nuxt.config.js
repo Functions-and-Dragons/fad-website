@@ -1,5 +1,3 @@
-const sendMessage = require("./deploy-scripts/sendMessage")
-
 export default {
   modulesDir: ['../node_modules'],
   srcDir: 'src/',
