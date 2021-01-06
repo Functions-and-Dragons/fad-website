@@ -15,13 +15,14 @@ function sendMessage() {
 
     switch (VERCEL_GIT_COMMIT_REF) {
         case "dev":
-            messageURL = `https://dev.functionsdragons.com`;
+            messageURL = `**DEV** at https://dev.functionsdragons.com`;
             break;
         case "stage":
-            messageURL = `https://stage.functionsdragons.com`;
+            messageURL = `**STAGE** at https://stage.functionsdragons.com`;
             break;
         case "prod":
-            messageURL = `https://functionsdragons.com`;
+            messageURL = `**PROD** at https://functionsdragons.com`;
+            break;
         default:
             messageURL = VERCEL_URL;
     }
