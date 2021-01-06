@@ -7,7 +7,7 @@ function sendMessage() {
         VERCEL_GIT_COMMIT_REF,
         VERCEL_GIT_COMMIT_SHA,
         VERCEL_GIT_COMMIT_AUTHOR_NAME,
-    }
+    } = process.env;
 
     let messageStart = `You ${VERCEL_ENV} deployment to `;
     let messageURL = "";
