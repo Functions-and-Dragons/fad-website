@@ -1,7 +1,7 @@
 export default {
   modulesDir: ['../node_modules'],
   srcDir: 'src/',
-  target: "ssr",
+  target: "server",
   /*
    ** Headers of the page
    */
