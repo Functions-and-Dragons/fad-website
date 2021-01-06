@@ -7,6 +7,7 @@ function sendMessage() {
         VERCEL_GIT_COMMIT_REF,
         VERCEL_GIT_COMMIT_SHA,
         VERCEL_GIT_COMMIT_AUTHOR_NAME,
+        DISCORD_WEBHOOK_PATH,
     } = process.env;
 
     let messageStart = `You ${VERCEL_ENV} deployment to `;
@@ -36,7 +37,7 @@ function sendMessage() {
     const req = https.request({
         hostname: "discord.com",
         port: 443,
-        path: "/api/webhooks/796151378706825256/rynIzh5as_vLlyiPkCK7kY1alPdHWsW3ejrPMRIeeuI-HDt2_SCFn_47lXfPv_a52nv_",
+        path: DISCORD_WEBHOOK_PATH,
         method: "POST",
         headers: { 'Content-Type': 'application/json', 'Content-Length': postData.length },
     }, (res) => {
