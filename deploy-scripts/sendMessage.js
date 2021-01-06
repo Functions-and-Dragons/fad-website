@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-export default function sendMessage() {
+function sendMessage() {
     console.log(process.env);
     fetch("https://discord.com/api/webhooks/796151378706825256/rynIzh5as_vLlyiPkCK7kY1alPdHWsW3ejrPMRIeeuI-HDt2_SCFn_47lXfPv_a52nv_", {
         method: "POST",
@@ -18,3 +18,5 @@ export default function sendMessage() {
         }
     });
 }
+
+module.exports.default = sendMessage;
