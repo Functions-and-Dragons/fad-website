@@ -1,6 +1,5 @@
 export default {
   modulesDir: ['../node_modules'],
-  srcDir: ['../src'],
   /*
    ** Headers of the page
    */
