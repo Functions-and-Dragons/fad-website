@@ -1,3 +1,5 @@
+const sendMessage = require("./deploy-scripts/sendMessage")
+
 export default {
   modulesDir: ['../node_modules'],
   srcDir: 'src/',
@@ -42,5 +44,6 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+    sendMessage();
   },
 };
