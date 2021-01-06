@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const https = require("https");
 
 function sendMessage() {
     const {
@@ -26,21 +26,36 @@ function sendMessage() {
             messageURL = VERCEL_URL;
     }
 
-    fetch("https://discord.com/api/webhooks/796151378706825256/rynIzh5as_vLlyiPkCK7kY1alPdHWsW3ejrPMRIeeuI-HDt2_SCFn_47lXfPv_a52nv_", {
-        method: "POST",
-        body: JSON.stringify({
-                username: "Now.SH Deploy Bot",
-                avatar_url: "",
-                content: `${messageStart}${messageURL}${messageEnd}`
-            }),
-        headers: { 'Content-Type': 'application/json' },
-    }).then(res => {
-        if (res.status < 300 && res.status >= 200) {
-            console.log(`Deployment message successfully sent to Discord with a ${res.status} status.`)
-        } else {
-            console.warn(`Deployment message failed to send to Discord with a ${res.status} status.`)
-        }
+    const postData = JSON.stringify({
+        username: "Now.SH Deploy Bot",
+        avatar_url: "",
+        content: `${messageStart}${messageURL}${messageEnd}`
     });
+
+    const req = https.request({
+        hostname: "discord.com",
+        port: 443,
+        path: "/api/webhooks/796151378706825256/rynIzh5as_vLlyiPkCK7kY1alPdHWsW3ejrPMRIeeuI-HDt2_SCFn_47lXfPv_a52nv_",
+        method: "POST",
+        headers: { 'Content-Type': 'application/json', 'Content-Length': postData.length },
+    }, (res) => {
+        if (res.statusCode < 300 && res.statusCode >= 200) {
+            console.log(`Deployment message successfully sent to Discord with a ${res.statusCode} status.`)
+        } else {
+            console.warn(`Deployment message failed to send to Discord with a ${res.statusCode} status.`)
+        }
+
+        res.on('data', (d) => {
+            process.stdout.write(d);
+        });
+    });
+
+    req.on('error', (e) => {
+        console.log("There was an error sending a message to Discord.");
+    });
+
+    req.write(postData);
+    req.end();
 }
 
 sendMessage();
