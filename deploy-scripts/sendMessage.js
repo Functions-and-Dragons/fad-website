@@ -19,4 +19,4 @@ function sendMessage() {
     });
 }
 
-module.exports = sendMessage;
+sendMessage();
